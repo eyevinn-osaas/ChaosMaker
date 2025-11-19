@@ -64,8 +64,8 @@ class ConfigStore {
 
     // Build the base URL
     let url = `${protocol}://${hostname}`
-    if ((protocol === 'http' && port !== '80' && port !== 80) ||
-        (protocol === 'https' && port !== '443' && port !== 443)) {
+    if ((protocol === 'http' && port !== '80') ||
+        (protocol === 'https' && port !== '443')) {
       url += `:${port}`
     }
 

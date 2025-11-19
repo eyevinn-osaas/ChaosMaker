@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { ChaosStreamProxyInstance, ProxyConfig } from '../types'
 import { saveProxyConfiguration, getProxyConfiguration } from '../services/osc'
 import './UrlGenerator.css'

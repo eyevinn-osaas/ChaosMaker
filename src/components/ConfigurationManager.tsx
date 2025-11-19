@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { listProxyConfigurations, deleteProxyConfiguration, saveProxyConfiguration, ProxyConfiguration, listChaosProxyInstances, createChaosProxyInstance, deleteChaosProxyInstance, validateChaosProxyUrl } from '../services/osc'
+import { listProxyConfigurations, deleteProxyConfiguration, ProxyConfiguration, listChaosProxyInstances, createChaosProxyInstance, deleteChaosProxyInstance, validateChaosProxyUrl } from '../services/osc'
 import { ChaosStreamProxyInstance, ProxyConfig } from '../types'
 import StreamConfig from './StreamConfig'
 import ChaosConfig from './ChaosConfig'
@@ -33,7 +33,6 @@ function ConfigurationManager({ selectedInstance, onInstanceSelect }: Props) {
   const [manualStatefulMode, setManualStatefulMode] = useState(true)
   const [validationState, setValidationState] = useState<ValidationState>('idle')
   const [validationMessage, setValidationMessage] = useState('')
-  const [validationOverride, setValidationOverride] = useState(false)
 
   // OSC Token state
   const [oscToken, setOscToken] = useState('')
@@ -185,7 +184,6 @@ function ConfigurationManager({ selectedInstance, onInstanceSelect }: Props) {
       if (result.valid) {
         setValidationState('success')
         setValidationMessage(`Success! ${result.message} (Status: ${result.statusCode})`)
-        setValidationOverride(false)
 
         const manualInstance: ChaosStreamProxyInstance = {
           name: 'manual',
@@ -198,12 +196,10 @@ function ConfigurationManager({ selectedInstance, onInstanceSelect }: Props) {
       } else {
         setValidationState('error')
         setValidationMessage(`Validation failed: ${result.message}`)
-        setValidationOverride(false)
       }
     } catch (error) {
       setValidationState('error')
       setValidationMessage(error instanceof Error ? error.message : 'Failed to validate proxy URL')
-      setValidationOverride(false)
     }
   }
 
@@ -230,7 +226,6 @@ function ConfigurationManager({ selectedInstance, onInstanceSelect }: Props) {
     setShowInstanceSelector(false)
     setValidationState('idle')
     setValidationMessage('')
-    setValidationOverride(false)
   }
 
   const handleCreateInstance = async () => {
@@ -370,16 +365,6 @@ function ConfigurationManager({ selectedInstance, onInstanceSelect }: Props) {
     }
   }
 
-  const copyRedirectUrl = async (configuration: ProxyConfiguration) => {
-    const url = configuration.redirectUrl || ''
-
-    try {
-      await navigator.clipboard.writeText(url)
-      alert('Redirect URL copied to clipboard!')
-    } catch (err) {
-      alert('Failed to copy to clipboard')
-    }
-  }
 
   const getRedirectUrl = (configuration: ProxyConfiguration) => {
     return configuration.redirectUrl || ''

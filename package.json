@@ -27,8 +27,6 @@
     "preview": "vite preview",
     "start:server": "node dist/server/index.js"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

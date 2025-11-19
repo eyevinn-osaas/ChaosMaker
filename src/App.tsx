@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ConfigurationManager from './components/ConfigurationManager'
 import HelpModal from './components/HelpModal'
 import { ChaosStreamProxyInstance } from './types'

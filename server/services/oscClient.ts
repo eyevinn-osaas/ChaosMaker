@@ -11,7 +11,7 @@ const execAsync = promisify(exec)
  * Make sure you have the OSC CLI installed and authenticated:
  *
  * Installation:
- *   npm install -g @eyevinn/osc-cli
+ *   npm install -g @osaas/cli
  *
  * Authentication:
  *   osc login
@@ -137,7 +137,7 @@ class OSCClient {
             chaosProxyInstances.push({
               name: instance.name,
               url: instance.url || `https://${name}.osc.eyevinn.technology`,
-              statefulMode: instance.statefulmode === true || instance.statefulmode === 'true'
+              statefulMode: instance.statefulmode === true || String(instance.statefulmode) === 'true'
             })
           }
         } catch (error) {
