@@ -1,0 +1,90 @@
+.chaos-config {
+}
+
+.chaos-modes {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.mode-btn:hover {
+  border-color: #667eea;
+}
+
+.mode-btn.active {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.mode-section {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.mode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.mode-header h3 {
+  font-size: 1.125rem;
+  color: #333;
+}
+
+.corruption-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+}
+
+.corruption-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.corruption-header h4 {
+  font-size: 1rem;
+  color: #555;
+}
+
+.targeting-fields {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.empty-mode,
+.select-mode {
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+  font-style: italic;
+}

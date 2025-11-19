@@ -1,0 +1,324 @@
+[
+  {
+    "name": "example-hls-1",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "vod",
+    "description": "VOD: With segment timeout on third segment:",
+    "delays": [],
+    "statusCodes": [],
+    "timeouts": [
+      {
+        "i": 2
+      }
+    ],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-2",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "vod",
+    "description": "VOD: With segment delay of 3000ms on first and second segment:",
+    "delays": [
+      {
+        "i": 0,
+        "ms": 3000
+      },
+      {
+        "i": 1,
+        "ms": 3000
+      }
+    ],
+    "statusCodes": [],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-3",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "vod",
+    "description": "VOD: With response of status code 404 on all segments:",
+    "delays": [],
+    "statusCodes": [
+      {
+        "i": "*",
+        "code": 404
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-4",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "vod",
+    "description": "VOD: With segment delay of 500ms on all segments (except for third and seventh segment):",
+    "delays": [
+      {
+        "i": "*",
+        "ms": 500
+      },
+      {
+        "i": 2
+      },
+      {
+        "i": 6
+      }
+    ],
+    "statusCodes": [],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-5",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "vod",
+    "description": "VOD: With segment delay of 1500ms on fifth segment, response code 404 on sixth, and timeout on seventh:",
+    "delays": [
+      {
+        "i": 4,
+        "ms": 1500
+      }
+    ],
+    "statusCodes": [
+      {
+        "i": 5,
+        "code": 404
+      }
+    ],
+    "timeouts": [
+      {
+        "i": 6
+      }
+    ],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-6",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "vod",
+    "description": "VOD: With segment delay of 1500ms on sixth segment, followed by a response code 400 if the bitrate is 2426000:",
+    "delays": [
+      {
+        "i": 5,
+        "ms": 1500
+      }
+    ],
+    "statusCodes": [
+      {
+        "i": 5,
+        "code": 400,
+        "br": 2426000
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-7",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "vod",
+    "description": "VOD: With segment delay of 1500ms on sixth segment, followed by a response code 400 if the bitrate is 1212000 OR 3131000:",
+    "delays": [
+      {
+        "i": 5,
+        "ms": 1500
+      }
+    ],
+    "statusCodes": [
+      {
+        "i": 5,
+        "code": 400,
+        "br": 1212000
+      },
+      {
+        "i": 5,
+        "code": 400,
+        "br": 3131000
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-8",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "live",
+    "description": "LIVE: With response of status code 404 on segment with sequence number 105:",
+    "delays": [],
+    "statusCodes": [
+      {
+        "sq": 105,
+        "code": 404
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-hls-9",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "hls",
+    "streamType": "live",
+    "description": "LIVE: Delay response of media manifest ladder 1 and 2 with 500 ms",
+    "delays": [
+      {
+        "l": 1,
+        "ms": 500
+      },
+      {
+        "l": 2,
+        "ms": 500
+      }
+    ],
+    "statusCodes": [],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-dash-1",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "dash",
+    "streamType": "vod",
+    "description": "VOD: Example of MPEG-DASH with delay of 1500ms and response code 418 on segment with $Number$ equal to 2:",
+    "delays": [
+      {
+        "i": 2,
+        "ms": 1500
+      }
+    ],
+    "statusCodes": [
+      {
+        "i": 2,
+        "code": 418
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-dash-2",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "dash",
+    "streamType": "vod",
+    "description": "VOD: Example of MPEG-DASH with response code 404 on segment with $Number$ equal to 3:",
+    "delays": [],
+    "statusCodes": [
+      {
+        "i": 3,
+        "code": 404
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-dash-3",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "dash",
+    "streamType": "vod",
+    "description": "VOD: Example of MPEG-DASH with segment delay of 1500ms on all segments (except for segments with $Number$ equal to 1 or 2.):",
+    "delays": [
+      {
+        "i": "*",
+        "ms": 1500
+      },
+      {
+        "i": 1
+      },
+      {
+        "i": 2
+      }
+    ],
+    "statusCodes": [],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-dash-4",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "dash",
+    "streamType": "live",
+    "description": "LIVE: Example of MPEG-DASH live stream with response of status code 404 on segment $Number$ or $Time$ equal to 3447425:",
+    "delays": [],
+    "statusCodes": [
+      {
+        "sq": 3447425,
+        "code": 404
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-dash-5",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "dash",
+    "streamType": "live",
+    "description": "LIVE: Example of MPEG-DASH live stream with $Time$ addressing with response of status code 404 on segment with $Number$ or $Time$ equal to 841164350:",
+    "delays": [],
+    "statusCodes": [
+      {
+        "sq": 841164350,
+        "code": 404
+      }
+    ],
+    "timeouts": [],
+    "throttles": []
+  },
+  {
+    "name": "example-dash-6",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "dash",
+    "streamType": "live",
+    "description": "LIVE: Example of MPEG-DASH with a segment download speed limited to 10kB/s on all segments",
+    "delays": [],
+    "statusCodes": [],
+    "timeouts": [],
+    "throttles": [
+      {
+        "i": "*",
+        "rate": 10000
+      }
+    ]
+  },
+  {
+    "name": "example-dash-7",
+    "instanceUrl": "https://<chaos-proxy-host>",
+    "sourceUrl": "https://<source-stream-url>",
+    "protocol": "dash",
+    "streamType": "live",
+    "description": "LIVE: Example of MPEG-DASH with a segment delay of 5000ms on segment with relative sequence number equal to 2:",
+    "delays": [
+      {
+        "rsq": 2,
+        "ms": 5000
+      }
+    ],
+    "statusCodes": [],
+    "timeouts": [],
+    "throttles": []
+  }
+]
